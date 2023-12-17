@@ -4,7 +4,6 @@ date: 2023-12-17 01:09:26
 tags: [Hexo, Tool]
 category: Hexo
 archive: false
-banner_img: /img/bg.png
 ---
 
 # 前记 📘
@@ -52,6 +51,10 @@ banner_img: /img/bg.png
 `Hexo` 部署
 
     hexo d(eploy)
+
+`Hexo` 组合操作
+
+    hexo d -g    # 先生成后部署
 
 ## 实用工具 🛠️
 

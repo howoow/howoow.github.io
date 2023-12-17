@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Hello-Hexo</title>
+    <link href="/2023/12/17/Hello-Hexo/"/>
+    <url>/2023/12/17/Hello-Hexo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前记-📘"><a href="#前记-📘" class="headerlink" title="前记 📘"></a>前记 📘</h1><p>&emsp;&emsp;你好呀 😊，欢迎来到 <strong><em>Wu Hao</em></strong> 的 <code>Hexo</code> 博客！在去年的这个时候也尝试过搭建自己的 <code>Hexo</code> 博客，但是由于疫情、工具熟练度等原因，经历了几次删库，没有坚持更新博客。</p><p>&emsp;&emsp;今天（目前已是 17 日凌晨，准确来说应该是 12 月 16 日）刚出差回来，拥有了短暂喘息的机会，蓦然回首，还是希望拥有一个记录自己日常学习及心得的博客。于是就有了这个博客。</p><p>&emsp;&emsp;工欲善其事，必先利其器。因此在这第一篇博客中，我标注了 <code>Tool</code> 标签，来记录一些管理 <code>Hexo</code> 管理、部署等使用方法，以应对后续因忘记管理命令而导致不想再更新（之前的博客大概率是因为此而夭折，这确实是一件令我头痛的问题）。</p><p>&emsp;&emsp;我不想 <code>Hexo</code> 对我只是一个简单记录技术学习的博客，我更想它能够充当一个树洞，能够接纳我一些无厘头的想法、感悟以及无所事事的日常碎碎念（嘿嘿:-P)，希望自己能够坚持更新下去吧！</p><p>&emsp;&emsp;最后以一句我最喜欢的古文之一的名句和大家共勉，同时也设置为了博客首页的 Slogan👇</p><blockquote><p>&emsp;<strong>穷且益坚，不坠青云之志</strong></p></blockquote><h1 id="葵花宝典-📙"><a href="#葵花宝典-📙" class="headerlink" title="葵花宝典 📙"></a>葵花宝典 📙</h1><h2 id="操作命令-✍️"><a href="#操作命令-✍️" class="headerlink" title="操作命令 ✍️"></a>操作命令 ✍️</h2><p><code>Hexo</code> 初始化</p><pre><code class="hljs">hexo init #类似于git init</code></pre><p><code>Hexo</code> 添加文章</p><pre><code class="hljs">hexo new blog-name</code></pre><p><code>Hexo</code> 删除文章</p><p><code>Hexo</code> 删除文章只需要删除.&#x2F;source&#x2F;_posts 文件夹下对应的<code>.md</code>文件后，重新编译即可</p><p><code>Hexo</code> 清除缓存</p><pre><code class="hljs">hexo clean</code></pre><p><code>Hexo</code> 生成（暂时可以理解为编译</p><pre><code class="hljs">hexo g(enerate)</code></pre><p><code>Hexo</code> 服务预览</p><pre><code class="hljs">hexo s(erver)</code></pre><p><code>Hexo</code> 部署</p><pre><code class="hljs">hexo d(eploy)</code></pre><h2 id="实用工具-🛠️"><a href="#实用工具-🛠️" class="headerlink" title="实用工具 🛠️"></a>实用工具 🛠️</h2><p><code>Hexo</code> 热部署<br>&emsp;&emsp;如果想要更新代码后试试刷新调试界面，可以尝试使用 <code>hexo-browsersync</code> 这款工具，安装方式也只需要使用 <code>npm</code> 安装，安装后即可使用：</p><pre><code class="hljs">npm install hexo-browsersync --save</code></pre><p><code>Fluid</code> 主题配置<br>&emsp;&emsp;本着简洁、美观、好用的想法，本博客使用的主题是 <code>Fluid</code> ，配置文档可以参考 <a href="https://hexo.fluid-dev.com/docs/guide">Hexo Fluid 用户手册</a></p><h2 id="迁移-🏠"><a href="#迁移-🏠" class="headerlink" title="迁移 🏠"></a>迁移 🏠</h2><p>&emsp;&emsp;开始以为 <code>Hexo</code> 的部署是将所有源代码上传到 github 再进行组织渲染的，后来发现不对，好像只是把 gernate 的文件上传到了 github，于是参照<a href="https://blog.csdn.net/K1052176873/article/details/122879462">Hexo 在多台电脑上提交和更新</a>在 github 新建了 <code>source</code> 默认分支用来保存源代码， <code>main</code> 分支用来进行 Page 托管展示界面，现将简要流程进行梳理。</p><ol><li>github 新建 <code>source</code> 分支，并在仓库 Settings-&gt;General-&gt;Default branch 中将其设置为默认分支，Settings-&gt;Pages-&gt;Build and Deploy 中的 branch 仍是 <code>main</code> 分支</li><li>将该仓库 clone 到本地（此时 clone 到应该是 <code>source</code> 默认分支），下载的文件夹中仅留下 <code>.git</code> 文件夹，删除其余文件。返回原 hexo 根目录，将该文件夹下除了 <code>.deploy_git</code> 以外的所有文件复制到 clone 下来的文件夹。此时该文件夹中应有 <code>.gitignore</code> 文件，用以忽略不需要 git 的文件，内容如下：</li></ol><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">.DS_Store<br>Thumbs.db<br>db.json<br>*.log<br>node_modules/<br>public/<br>.deploy*/<br>_multiconfig.yml<br></code></pre></td></tr></table></figure><p>如果之前有 clone 过 theme 文件，需要把主题文件夹中的.git 删除掉，因为 git 无法嵌套上传</p><ol start="3"><li>将 clone 并修改后的文件夹推送到远程仓库</li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">git add .<br>git commit -m init<br>git push<br></code></pre></td></tr></table></figure><ol start="4"><li><p>后续写好文章，部署后，也需要将整个网站的管理文件上传至 source 分支进行同步，以便其他终端进行拉取</p></li><li><p>其他终端配置好 github 的 ssh 后，就可以直接 clone 仓库到本地，并在 xxx.github.io 文件夹下执行</p></li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install hexo<br>npm install<br>npm install hexo-deployer-git<br></code></pre></td></tr></table></figure><p>自动安装 <code>packages.json</code> 中的依赖，就可以生成、编译和部署啦～</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>Tool</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

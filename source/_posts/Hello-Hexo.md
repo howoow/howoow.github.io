@@ -4,6 +4,10 @@ date: 2023-12-17 01:09:26
 tags: [Hexo, Tool]
 category: Hexo
 archive: false
+# 首页文章封面大图
+index_img: /img/bg.png
+# 文章顶部大图
+banner_img: /img/bg.png
 ---
 
 # 前记 📘

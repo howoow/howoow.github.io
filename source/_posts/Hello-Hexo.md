@@ -1,7 +1,7 @@
 ---
 title: Hello-Hexo
 date: 2023-12-17 01:09:26
-tags: [Hexo, Tool]
+tags: [Hexo, 工具]
 category: Hexo
 archive: false
 # 首页文章封面大图

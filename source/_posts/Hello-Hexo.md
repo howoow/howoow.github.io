@@ -70,9 +70,9 @@ banner_img: /img/bg.png
 `Fluid` 主题配置
 &emsp;&emsp;本着简洁、美观、好用的想法，本博客使用的主题是 `Fluid` ，配置文档可以参考 [Hexo Fluid 用户手册](https://hexo.fluid-dev.com/docs/guide)
 
-## 迁移 🏠
+## 迁移终端 🏠
 
-&emsp;&emsp;开始以为 `Hexo` 的部署是将所有源代码上传到 github 再进行组织渲染的，后来发现不对，好像只是把 gernate 的文件上传到了 github，于是参照[Hexo 在多台电脑上提交和更新](https://blog.csdn.net/K1052176873/article/details/122879462)在 github 新建了 `source` 默认分支用来保存源代码， `main` 分支用来进行 Page 托管展示界面，现将简要流程进行梳理。
+&emsp;&emsp;背景：开始以为 `Hexo` 的部署是将所有源代码上传到 github 再进行组织渲染的，后来发现不对，好像只是把 gernate 的文件上传到了 github，于是参照[Hexo 在多台电脑上提交和更新](https://blog.csdn.net/K1052176873/article/details/122879462)在 github 新建了 `source` 默认分支用来保存源代码， `main` 分支用来进行 Page 托管展示界面，现将简要流程进行梳理。
 
 1. github 新建 `source` 分支，并在仓库 Settings->General->Default branch 中将其设置为默认分支，Settings->Pages->Build and Deploy 中的 branch 仍是 `main` 分支
 2. 将该仓库 clone 到本地（此时 clone 到应该是 `source` 默认分支），下载的文件夹中仅留下 `.git` 文件夹，删除其余文件。返回原 hexo 根目录，将该文件夹下除了 `.deploy_git` 以外的所有文件复制到 clone 下来的文件夹。此时该文件夹中应有 `.gitignore` 文件，用以忽略不需要 git 的文件，内容如下：
@@ -100,7 +100,7 @@ git push
 
 4. 后续写好文章，部署后，也需要将整个网站的管理文件上传至 source 分支进行同步，以便其他终端进行拉取
 
-5. 其他终端配置好 github 的 ssh 后，就可以直接 clone 仓库到本地，并在 xxx.github.io 文件夹下执行
+5. 其他终端配置好 github 的 ssh 后，就可以直接 clone 仓库到本地，并在 xxx.github.io 文件夹下执行以下命令，自动安装 `packages.json` 中的依赖，就可以生成、编译和部署啦～
 
 ```sh
 npm install hexo
@@ -108,4 +108,4 @@ npm install
 npm install hexo-deployer-git
 ```
 
-自动安装 `packages.json` 中的依赖，就可以生成、编译和部署啦～
+6. 注意，Windows环境执行完以上命令，紧接着执行hexo相关命令时，可能会出现命令不存在的情况。此时需要前往环境变量中，将`./node_modules/.bin`文件夹加入到path环境变量中（该文件夹中含有hexo.exe）

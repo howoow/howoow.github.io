@@ -1,0 +1,86 @@
+/**
+ * 首页 UV 统计样式
+ * 显示在首页右下角
+ */
+
+#uv-stats {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#uv-stats:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.uv-stats-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.uv-stats-icon {
+  font-size: 16px;
+}
+
+.uv-stats-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.uv-stats-number {
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+  #uv-stats .uv-stats-content {
+    background: linear-gradient(135deg, #434343 0%, #2c3e50 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  #uv-stats {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .uv-stats-content {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+
+  .uv-stats-icon {
+    font-size: 14px;
+  }
+
+  .uv-stats-number {
+    font-size: 14px;
+    min-width: 30px;
+  }
+}
+
+/* 打印时隐藏 */
+@media print {
+  #uv-stats {
+    display: none;
+  }
+}
